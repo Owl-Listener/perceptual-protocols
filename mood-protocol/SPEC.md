@@ -23,7 +23,7 @@ A conformant `mood.md` MUST include these sections:
 Top-level heading with the mood's name.
 
 ### `## Essence`
-2-3 sentences capturing the overall feeling. Must be specific and evocative â 
+2-3 sentences capturing the overall feeling. Must be specific and evocative — 
 actionable creative direction, not generic descriptors.
 
 ### `## Colour`
@@ -60,7 +60,7 @@ Surface quality, material references, finish.
 
 ### `## Design Principles`
 3-5 short principles extracted from the mood, formatted as:
-**Principle name** â one-sentence explanation.
+**Principle name** — one-sentence explanation.
 
 ### `## References`
 Per-image notes on what each source image contributes.
@@ -110,8 +110,8 @@ of generated files:
 
 | Protocol | Purpose | Domain |
 |----------|---------|--------|
-| `SKILL.md` | Procedural knowledge â how to build | Craft |
-| `mood.md` | Perceptual direction â how it should feel | Aesthetics |
+| `SKILL.md` | Procedural knowledge — how to build | Craft |
+| `mood.md` | Perceptual direction — how it should feel | Aesthetics |
 | `.cursorrules` / `CLAUDE.md` | Agent behaviour configuration | Process |
 
 `mood.md` is complementary to all of the above. It provides the aesthetic 
