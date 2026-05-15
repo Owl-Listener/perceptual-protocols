@@ -5,7 +5,7 @@ __pycache__/
 .venv/
 venv/
 
-# Environment â never commit API keys
+# Environment — never commit API keys
 .env
 .env.*
 !.env.example
