@@ -4,49 +4,49 @@
 
 Designers think in images. AI agents think in text. `mood.md` is a protocol that connects the two.
 
-Drop your moodboard images into a folder â screenshots of annotated Figma canvases, colour palettes, typography specimens, spatial references, things you love, things you hate â and generate a structured `mood.md` that any AI agent can use for design direction.
+Drop your moodboard images into a folder — screenshots of annotated Figma canvases, colour palettes, typography specimens, spatial references, things you love, things you hate — and generate a structured `mood.md` that any AI agent can use for design direction.
 
-`mood.md` is the **perceptual context** layer of agent-readable design â the file that captures how a project should *feel* before it has a design system.
+`mood.md` is the **perceptual context** layer of agent-readable design — the file that captures how a project should *feel* before it has a design system.
 
 ## Why this exists
 
-Agents now ship with rich procedural context (how to build) and increasingly with systemic context (what your design system already is). What they don't have is **perceptual context** â a portable, version-controllable representation of aesthetic intent. Designers carry that in their heads and translate it through moodboards. `mood.md` is that translation, written down.
+Agents now ship with rich procedural context (how to build) and increasingly with systemic context (what your design system already is). What they don't have is **perceptual context** — a portable, version-controllable representation of aesthetic intent. Designers carry that in their heads and translate it through moodboards. `mood.md` is that translation, written down.
 
 | Layer | File | Purpose |
 | --- | --- | --- |
-| Procedural | `AGENTS.md`, `SKILL.md`, `.cursorrules` | "Here's how to work" â commands, conventions, tests |
+| Procedural | `AGENTS.md`, `SKILL.md`, `.cursorrules` | "Here's how to work" — commands, conventions, tests |
 | Systemic | `DESIGN.md`, design tokens, brand voice | "Here's the system that already exists" |
-| **Perceptual** | **`mood.md`** | **"Here's what it should feel like" â before there is a system** |
+| **Perceptual** | **`mood.md`** | **"Here's what it should feel like" — before there is a system** |
 
 Together they give an agent procedural knowledge, system fidelity, and aesthetic direction.
 
 ## Where mood.md fits
 
-A `mood.md` is the first design artefact in a project â the brief that informs the system. It is the only file in this stack that takes images as input.
+A `mood.md` is the first design artefact in a project — the brief that informs the system. It is the only file in this stack that takes images as input.
 
 ```
-        TIME â
+        TIME →
    [intent]        [system]          [behaviour]         [delivery]
-   mood.md    â    DESIGN.md     â   AGENTS.md       â   shipped UI
+   mood.md    →    DESIGN.md     →   AGENTS.md       →   shipped UI
                    + tokens.json     + .cursorrules
                    + brand voice     + SKILL.md
 ```
 
-**How `mood.md` differs from `DESIGN.md`:** `DESIGN.md` ([Google Labs, April 2026](https://github.com/google-labs-code/design.md)) is a brand-and-system manifest â YAML tokens, components, established visual identity. Its sweet spot is teams who already have a design system and want agents to apply it faithfully. `mood.md` sits one step upstream: it captures aesthetic intent *before* the system exists, takes images as input (not tokens), and surfaces things `DESIGN.md` doesn't try to: emotional register, anti-references, principles, texture, and a written instruction to the agent on how to think when in doubt. The two are complementary. A typical project would generate `mood.md` from moodboards in week one, derive `DESIGN.md` and tokens from it in week three, and run both alongside `AGENTS.md` for the rest of the build.
+**How `mood.md` differs from `DESIGN.md`:** `DESIGN.md` ([Google Labs, April 2026](https://github.com/google-labs-code/design.md)) is a brand-and-system manifest — YAML tokens, components, established visual identity. Its sweet spot is teams who already have a design system and want agents to apply it faithfully. `mood.md` sits one step upstream: it captures aesthetic intent *before* the system exists, takes images as input (not tokens), and surfaces things `DESIGN.md` doesn't try to: emotional register, anti-references, principles, texture, and a written instruction to the agent on how to think when in doubt. The two are complementary. A typical project would generate `mood.md` from moodboards in week one, derive `DESIGN.md` and tokens from it in week three, and run both alongside `AGENTS.md` for the rest of the build.
 
 ## Quick start (no setup required)
 
-The simplest way to generate a `mood.md` â no code, no API keys, no terminal.
+The simplest way to generate a `mood.md` — no code, no API keys, no terminal.
 
 You'll use two files: **`prompt.md`** (the instructions you paste into an AI) and **`mood.md`** (the file the AI generates for you to save in your project).
 
 ### 1. Screenshot your moodboard
 
-Export your annotated Figma canvas as a PNG, or screenshot your Pinterest/Miro board. Sticky notes, labels, and spatial groupings are all valuable â the AI reads everything visible.
+Export your annotated Figma canvas as a PNG, or screenshot your Pinterest/Miro board. Sticky notes, labels, and spatial groupings are all valuable — the AI reads everything visible.
 
 ### 2. Upload and prompt
 
-Open the AI you already use â [claude.ai](https://claude.ai), [gemini.google.com](https://gemini.google.com), [chatgpt.com](https://chatgpt.com) â upload your images, then copy the contents of **[prompt.md](https://github.com/Owl-Listener/mood-protocol/blob/main/prompt.md)** and paste them into the chat.
+Open the AI you already use — [claude.ai](https://claude.ai), [gemini.google.com](https://gemini.google.com), [chatgpt.com](https://chatgpt.com) — upload your images, then copy the contents of **[prompt.md](https://github.com/Owl-Listener/mood-protocol/blob/main/prompt.md)** and paste them into the chat.
 
 ### 3. Save the output
 
@@ -78,10 +78,10 @@ Each backend has its own pinned requirements file so you only install what you'l
 
 ```
 my-project/
-  mood/                   â input: drop your reference images here
+  mood/                   ← input: drop your reference images here
     your-images-here.png
-    notes.md              â optional designer annotations
-  mood.md                 â output: generated by the script
+    notes.md              ← optional designer annotations
+  mood.md                 ← output: generated by the script
 ```
 
 Drop your reference images into the `mood/` folder, then:
@@ -99,15 +99,15 @@ python generate_mood.py --model gemini --name "Editorial Warmth"
 mood/
   warm-editorial-layout.png
   colour-palette.png
-  not-corporate-dashboard.png    â anti-reference
+  not-corporate-dashboard.png    ← anti-reference
 ```
 
-Negative constraints are first-class in the mood protocol â `mood.md` is one of the only design artefacts that explicitly captures *what to avoid*, not just what to do.
+Negative constraints are first-class in the mood protocol — `mood.md` is one of the only design artefacts that explicitly captures *what to avoid*, not just what to do.
 
 ### Options
 
 ```
-python generate_mood.py                            # scans ./mood/ â ./mood.md (uses Claude)
+python generate_mood.py                            # scans ./mood/ → ./mood.md (uses Claude)
 python generate_mood.py --model gemini             # use Gemini instead
 python generate_mood.py --input ./brand-refs       # custom input folder
 python generate_mood.py --output ./src/design      # custom output location
@@ -118,7 +118,7 @@ python generate_mood.py --max-tokens 16384                 # raise the output ca
 python generate_mood.py --dry-run                          # preview the prompt without calling the API
 ```
 
-The defaults (`claude-sonnet-4-20250514`, `gemini-2.5-flash`) are known-good snapshots at time of writing. If a snapshot is retired, pass `--claude-model` / `--gemini-model` with any current model ID â no code change needed.
+The defaults (`claude-sonnet-4-20250514`, `gemini-2.5-flash`) are known-good snapshots at time of writing. If a snapshot is retired, pass `--claude-model` / `--gemini-model` with any current model ID — no code change needed.
 
 The default `--max-tokens` is `8192`, which comfortably fits a full mood with all optional sections. If you're generating from a very dense moodboard and the output looks truncated, bump it higher.
 
@@ -128,19 +128,19 @@ The default `--max-tokens` is `8192`, which comfortably fits a full mood with al
 
 A generated `mood.md` contains structured, actionable design direction:
 
-- **Essence** â 2-3 sentences capturing the overall feeling
-- **Colour** â temperature, palette (with hex values), contrast, saturation
-- **Typography** â character, weight distribution, suggested pairings
-- **Space & Layout** â rhythm, grid character, scale relationships
-- **Texture & Material** â surface quality, material references
-- **Emotional Register** â how someone should *feel*
-- **Design Principles** â extracted from the moodboard
-- **Anti-References** â what this explicitly is NOT
-- **Agent Instructions** â actionable paragraph for any AI agent
+- **Essence** — 2-3 sentences capturing the overall feeling
+- **Colour** — temperature, palette (with hex values), contrast, saturation
+- **Typography** — character, weight distribution, suggested pairings
+- **Space & Layout** — rhythm, grid character, scale relationships
+- **Texture & Material** — surface quality, material references
+- **Emotional Register** — how someone should *feel*
+- **Design Principles** — extracted from the moodboard
+- **Anti-References** — what this explicitly is NOT
+- **Agent Instructions** — actionable paragraph for any AI agent
 
 ## See a full example
 
-A complete worked example lives in [`examples/folk-maximalism/`](https://github.com/Owl-Listener/mood-protocol/blob/main/examples/folk-maximalism) â two moodboard screenshots, the designer's notes, and the generated `mood.md`. Its README shows the exact command that produced the output, so you can regenerate it yourself and compare how different models read the same images.
+A complete worked example lives in [`examples/folk-maximalism/`](https://github.com/Owl-Listener/mood-protocol/blob/main/examples/folk-maximalism) — two moodboard screenshots, the designer's notes, and the generated `mood.md`. Its README shows the exact command that produced the output, so you can regenerate it yourself and compare how different models read the same images.
 
 ## Using mood.md with agents
 
@@ -162,7 +162,7 @@ Before styling this component, read mood.md for the project's visual direction.
 
 ```
 Read mood.md for aesthetic intent and DESIGN.md for system rules.
-When they conflict, mood.md describes what we're aiming for and DESIGN.md describes what we've built â escalate the conflict to a human.
+When they conflict, mood.md describes what we're aiming for and DESIGN.md describes what we've built — escalate the conflict to a human.
 ```
 
 **Multiple moods per project:**
@@ -171,17 +171,17 @@ When they conflict, mood.md describes what we're aiming for and DESIGN.md descri
 my-project/
   moods/
     brand/
-      mood/             â input: drop your reference images here
+      mood/             ← input: drop your reference images here
         ...images...
-      mood.md           â output: generated by the script
+      mood.md           ← output: generated by the script
     dark-mode/
-      mood/             â input
+      mood/             ← input
         ...images...
-      mood.md           â output
+      mood.md           ← output
     onboarding/
-      mood/             â input
+      mood/             ← input
         ...images...
-      mood.md           â output
+      mood.md           ← output
 ```
 
 Inside each subfolder the `mood/` directory holds the images you feed in, and the sibling `mood.md` is what the script writes out. Generate any one of them with `python generate_mood.py --input moods/brand/mood --output moods/brand --name Brand`.
@@ -190,44 +190,44 @@ Inside each subfolder the `mood/` directory holds the images you feed in, and th
 
 This protocol is tool-agnostic. Your moodboard images can come from:
 
-- **Figma** â export a frame as PNG
-- **Stitch** (Google's AI UI design tool) â screenshot or export
-- **Miro / FigJam** â screenshot your board
-- **Pinterest** â save images to a folder
-- **Are.na** â download your channel
-- **Cosmos** â screenshot a cluster
-- **Your phone** â photograph a physical moodboard
-- **Anywhere** â if it's an image, it works
+- **Figma** — export a frame as PNG
+- **Stitch** (Google's AI UI design tool) — screenshot or export
+- **Miro / FigJam** — screenshot your board
+- **Pinterest** — save images to a folder
+- **Are.na** — download your channel
+- **Cosmos** — screenshot a cluster
+- **Your phone** — photograph a physical moodboard
+- **Anywhere** — if it's an image, it works
 
 ## Works with any AI model
 
-The output is just markdown. Any model that can read text can use it â Claude, Gemini, GPT, Llama, whatever you prefer.
+The output is just markdown. Any model that can read text can use it — Claude, Gemini, GPT, Llama, whatever you prefer.
 
-The generator script supports Claude and Gemini out of the box. Adding another vision backend is straightforward â contributions welcome.
+The generator script supports Claude and Gemini out of the box. Adding another vision backend is straightforward — contributions welcome.
 
 ## Philosophy
 
-- **Perceptual, not procedural** â mood.md captures intent before there is a system; it doesn't try to be a design system manifest
-- **Designer-native** â formalises what designers already do, no new workflow to learn
-- **Model-agnostic** â the output works with any AI
-- **Tool-agnostic** â the input works from any design tool
-- **Composable** â multiple moods per project, each a different direction
-- **Versionable** â it's a text file, it lives in git
-- **Honest about absence** â anti-references are first-class; saying what something is *not* is half the brief
-- **Open** â MIT licensed, free to use, adapt, and extend
+- **Perceptual, not procedural** — mood.md captures intent before there is a system; it doesn't try to be a design system manifest
+- **Designer-native** — formalises what designers already do, no new workflow to learn
+- **Model-agnostic** — the output works with any AI
+- **Tool-agnostic** — the input works from any design tool
+- **Composable** — multiple moods per project, each a different direction
+- **Versionable** — it's a text file, it lives in git
+- **Honest about absence** — anti-references are first-class; saying what something is *not* is half the brief
+- **Open** — MIT licensed, free to use, adapt, and extend
 
 ## Contributing
 
 This is an early-stage protocol. Contributions welcome:
 
-- **Alternative vision backends** â Gemini, GPT-4o, local models
-- **Framework integrations** â Claude Code slash commands, Cursor rules, etc.
-- **Figma plugin** â one-click export from a Figma frame
-- **Format extensions** â motion, sound, interaction mood dimensions
-- **Critique mode** â feed a screenshot + mood.md, get a graded rubric of adherence
-- **Live preview** â render a self-contained HTML sample from a mood.md
-- **DESIGN.md interop** â derive a starter DESIGN.md from a mature mood.md
-- **Example mood files** â share your generated moods
+- **Alternative vision backends** — Gemini, GPT-4o, local models
+- **Framework integrations** — Claude Code slash commands, Cursor rules, etc.
+- **Figma plugin** — one-click export from a Figma frame
+- **Format extensions** — motion, sound, interaction mood dimensions
+- **Critique mode** — feed a screenshot + mood.md, get a graded rubric of adherence
+- **Live preview** — render a self-contained HTML sample from a mood.md
+- **DESIGN.md interop** — derive a starter DESIGN.md from a mature mood.md
+- **Example mood files** — share your generated moods
 
 ## License
 
@@ -235,4 +235,4 @@ MIT
 
 ---
 
-*mood-protocol was created by [MC Dean](https://substack.com/@marieclairedean) as part of ongoing work on [Percolates](https://marieclairedean.substack.com) â exploring design, AI, and the craft of making things well.*
+*mood-protocol was created by [MC Dean](https://substack.com/@marieclairedean) as part of ongoing work on [Percolates](https://marieclairedean.substack.com) — exploring design, AI, and the craft of making things well.*
