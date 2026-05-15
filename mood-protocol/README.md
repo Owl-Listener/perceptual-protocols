@@ -1,5 +1,7 @@
 # mood-protocol
 
+Part of the Perceptual Protocols family.
+
 **A visual-to-semantic bridge for AI-assisted design.**
 
 Designers think in images. AI agents think in text. `mood.md` is a protocol that connects the two.
