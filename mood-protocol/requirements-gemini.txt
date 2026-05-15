@@ -1,0 +1,3 @@
+# Dependencies for running generate_mood.py with --model gemini.
+# Install: pip install -r requirements-gemini.txt
+google-genai>=0.3
