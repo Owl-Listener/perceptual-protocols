@@ -19,10 +19,10 @@ Each protocol does one thing and stops. Each one outputs a plain markdown file t
 | Protocol | What it does | Output | Status |
 |---|---|---|---|
 | [mood-protocol](./mood-protocol) | Turn a moodboard into structured aesthetic intent | `mood.md` | Released (v0.1) |
-| [vocab-protocol](./vocab-protocol) | Build a shared vocabulary for aesthetic qualities | `vocab.md` | In development |
+| [vocab-protocol](./vocab-protocol) | Build a shared vocabulary for aesthetic qualities | `vocab.md` | Released (v0.1) |
+| [trace-protocol](./trace-protocol) | Capture the implicit mood of an existing UI | `trace.md` | Released (v0.1) |
 | [critique-protocol](./critique-protocol) | Critique agent output against a mood | `critique.md` | Planned |
 | [taste-protocol](./taste-protocol) | Capture a designer's persistent preferences across projects | `taste.md` | Planned |
-| [inverse-protocol](./inverse-protocol) | Read an existing UI and extract its implied mood | `mood.md` (reverse) | Planned |
 
 More will be added. Some won't survive. That's the point of building this way.
 
@@ -56,7 +56,7 @@ Six principles. All six apply to every protocol in here.
 
 **Model-agnostic.** Anything that can read text can use these. Claude, Gemini, ChatGPT, Cursor, Copilot, the model you'll be using in two years.
 
-**Single-purpose.** Each protocol does one thing and stops. mood-protocol is not vocab-protocol is not critique-protocol. They compose. They do not bloat.
+**Single-purpose.** Each protocol does one thing and stops. mood-protocol is not vocab-protocol is not trace-protocol. They compose. They do not bloat.
 
 **No setup is the default.** If a designer can't use a protocol in sixty seconds with the AI they already have, the protocol has failed. There can be a script for power users, but the prompt and the format spec are the canonical path.
 
@@ -88,9 +88,9 @@ If `SKILL.md` is the protocol for craft knowledge, this family is the beginning 
 
               SKILL.md                            mood.md
               CLAUDE.md                           vocab.md
-              cursor rules                        critique.md
-              agent-ready                         taste.md
-              design tokens                       anti.md
+              cursor rules                        trace.md
+              agent-ready                         critique.md
+              design tokens                       taste.md
                   │                                  │
                   └──────────── agent reads ─────────┘
                                   both halves
@@ -102,11 +102,11 @@ Procedural protocols tell the agent **how to do the work**. Perceptual protocols
 
 ## Roadmap
 
-**Now (v0.1):** mood-protocol is live and usable. vocab-protocol is in active development as the second member of the family.
+**Now (v0.1):** mood-protocol, vocab-protocol, and trace-protocol are all live and usable. The family has three working members covering intent (mood), shared language (vocab), and decoded reading of existing work (trace).
 
-**Next:** vocab-protocol v0.1 ships with a minimal shared taxonomy of aesthetic qualities (temperature, density, restraint, irreverence, materiality, others to be discovered), with anti-references built in from the start.
+**Next:** Real-world use of the three protocols on actual projects, surfacing the vocabulary gaps that need new terms and the integration patterns between them. Cross-references between mood, vocab, and trace files used together in real workflows.
 
-**After that:** critique-protocol, taste-protocol, inverse-protocol. Sequenced based on what the first two protocols teach us about the gaps that remain.
+**After that:** critique-protocol and taste-protocol. Sequenced based on what real use of the first three teaches us about the gaps that remain.
 
 This list is a hypothesis, not a contract. The discipline is too young to plan with confidence. Build what's needed, ship it small, learn, keep going.
 
@@ -117,7 +117,7 @@ This list is a hypothesis, not a contract. The discipline is too young to plan w
 The most useful contributions are:
 
 - **New vocabulary terms** for vocab-protocol. The taxonomy is open and growing. Send a pull request with the term, a one-line definition, two example references, and two anti-references.
-- **Worked examples** for any protocol. A moodboard input and the `mood.md` it produces is more useful than any spec.
+- **Worked examples** for any protocol. A moodboard input and the `mood.md` it produces is more useful than any spec. A traced UI and its `trace.md` is the same.
 - **New protocols.** If you've found a gap, something designers do that agents can't yet see, open an issue. Sketch the format. We'll figure out together whether it belongs in this family or somewhere else.
 
 See `CONTRIBUTING.md` inside each sub-protocol for the specifics.
@@ -128,13 +128,13 @@ See `CONTRIBUTING.md` inside each sub-protocol for the specifics.
 
 A short, opinionated list. The work this builds on.
 
-- Lucero, Hegemann and Oulasvirta — *Mood Boards* (CHI '19). Empirical work on how designers actually use moodboards.
-- Jeffrey Bardzell — *Interaction Criticism: An Introduction to the Practice*. Foundational paper for aesthetic interaction in HCI.
-- UC Berkeley iSchool (2026) — *Aesthetic Taste and Its Limits: Breakdowns in Prompt-Mediated Design of User Interfaces*. The most current academic work on the exact problem these protocols address.
-- Sianne Ngai — *Our Aesthetic Categories: Zany, Cute, Interesting*. Philosophy of aesthetic experience. The category of the **interesting** especially is essential for AI-era design.
-- Richard Shusterman — *Somaesthetics*. Bodily aesthetics, for when the work needs to consider what design feels like in a body, not just on a screen.
-- Donald Norman — *Emotional Design*. The visceral, behavioural, reflective trio.
-- Marc Hassenzahl — *hedonic vs pragmatic UX*. Two-axis model that makes feeling arguments legible to PMs.
+- Lucero, Hegemann and Oulasvirta — Mood Boards (CHI '19). Empirical work on how designers actually use moodboards.
+- Jeffrey Bardzell — Interaction Criticism: An Introduction to the Practice. Foundational paper for aesthetic interaction in HCI.
+- UC Berkeley iSchool (2026) — Aesthetic Taste and Its Limits: Breakdowns in Prompt-Mediated Design of User Interfaces. The most current academic work on the exact problem these protocols address.
+- Sianne Ngai — Our Aesthetic Categories: Zany, Cute, Interesting. Philosophy of aesthetic experience. The category of the **interesting** especially is essential for AI-era design.
+- Richard Shusterman — Somaesthetics. Bodily aesthetics, for when the work needs to consider what design feels like in a body, not just on a screen.
+- Donald Norman — Emotional Design. The visceral, behavioural, reflective trio.
+- Marc Hassenzahl — hedonic vs pragmatic UX. Two-axis model that makes feeling arguments legible to PMs.
 
 The longer reading list with notes lives in `READING.md`.
 
