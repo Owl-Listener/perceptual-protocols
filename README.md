@@ -22,7 +22,7 @@ Each protocol does one thing and stops. Each one outputs a plain markdown file t
 | [vocab-protocol](./vocab-protocol) | Build a shared vocabulary for aesthetic qualities | `vocab.md` | Released (v0.1) |
 | [trace-protocol](./trace-protocol) | Capture the implicit mood of an existing UI | `trace.md` | Released (v0.1) |
 | [critique-protocol](./critique-protocol) | Critique agent output against a mood | `critique.md` | Planned |
-| [taste-protocol](./taste-protocol) | Capture a designer's persistent preferences across projects | `taste.md` | Planned |
+| [taste-protocol](./taste-protocol) | Capture a persistent preferences across projects | `taste.md` | Planned |
 
 More will be added. Some won't survive. That's the point of building this way.
 
