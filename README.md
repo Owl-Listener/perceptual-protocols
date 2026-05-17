@@ -17,13 +17,14 @@ Each protocol does one thing and stops. Each one outputs a plain markdown file t
 | Protocol | What it does | Output | Status |
 |---|---|---|---|
 | [mood-protocol](./mood-protocol) | Declare what the product should feel like | `mood.md` | Released (v0.1) |
-| [vocab-protocol](./vocab-protocol) | Share a vocabulary for the qualities you mean | `vocab.md` | Released (v0.1) |
+| [vocab-protocol](./vocab-protocol) | Share a vocabulary for the static qualities you mean | `vocab.md` | Released (v0.1) |
+| [motion-protocol](./motion-protocol) | Share a vocabulary for how the product should move | `motion.md` | Released (v0.1) |
 | [situation-protocol](./situation-protocol) | Weight the qualities differently by context | `situation.md` | Released (v0.1) |
 | [trace-protocol](./trace-protocol) | Read an existing UI and capture its implicit mood | `trace.md` | Released (v0.1) |
 | [critique-protocol](./critique-protocol) | Critique agent output against the brief | `critique.md` | Released (v0.1) |
 | [taste-protocol](./taste-protocol) | Capture a designer's persistent preferences across projects | `taste.md` | Planned |
 
-The order tells the story of how the system runs. Declare intent, share language, encode conditional weighting, read existing work, close the feedback loop.
+The order tells the story of how the system runs. Declare intent. Share language for the static qualities. Share language for the motion qualities. Encode conditional weighting. Read existing work. Close the feedback loop.
 
 ---
 
@@ -55,7 +56,7 @@ Six principles. All six apply to every protocol in here.
 
 **Model-agnostic.** Anything that can read text can use these. Claude, Gemini, ChatGPT, Cursor, Copilot, the model you'll be using in two years.
 
-**Single-purpose.** Each protocol does one thing and stops. mood-protocol is not vocab-protocol is not situation-protocol. They compose. They do not bloat.
+**Single-purpose.** Each protocol does one thing and stops. mood-protocol is not vocab-protocol is not motion-protocol is not situation-protocol. They compose. They do not bloat.
 
 **No setup is the default.** If a designer can't use a protocol in sixty seconds with the AI they already have, the protocol has failed. There can be a script for power users, but the prompt and the format spec are the canonical path.
 
@@ -69,9 +70,9 @@ You can use these without reading this section. But it is the reason they exist.
 
 For most of computing history, the interface had to be designed for reuse. A design system was an artifact of scarcity. You couldn't afford to make a different interface for every person at every moment, so you built one carefully and shipped it to everyone. Polish was the proof of care.
 
-That world is ending. Generative interfaces are arriving. Fluid, personalised, regenerated for each user in the moment of use. When the interface is made on the fly, the design system stops being a library and starts being something more like a vocabulary. The agent needs to know not just what to build, but what the result should feel like, and how that feeling should adapt to who is looking and when.
+That world is ending. Generative interfaces are arriving. Fluid, personalised, regenerated for each user in the moment of use. When the interface is made on the fly, the design system stops being a library and starts being something more like a vocabulary. The agent needs to know not just what to build, but what the result should feel like, how it should move, and how that feeling should adapt to who is looking and when.
 
-Designers already know how to communicate this. We have moodboards. We have anti-references. We have private vocabularies for the qualities of a thing. We have implicit knowledge about how a clinical dashboard should feel different from a patient portal. The problem is that all of this lives in our heads, in Figma files, on pinned walls. In places agents cannot see.
+Designers already know how to communicate this. We have moodboards. We have anti-references. We have private vocabularies for the qualities of a thing. We have implicit knowledge about how a clinical dashboard should feel different from a patient portal, and how a snappy product moves differently from a calm one. The problem is that all of this lives in our heads, in Figma files, on pinned walls. In places agents cannot see.
 
 These protocols are bridges. Each one takes something designers already do, and turns it into a file an agent can read.
 
@@ -89,9 +90,10 @@ The family sits on the perceptual side of a bigger gap in how we talk to agents.
 
               SKILL.md                            mood.md
               CLAUDE.md                           vocab.md
-              cursor rules                        situation.md
-              agent-ready                         trace.md
-              design tokens                       critique.md
+              cursor rules                        motion.md
+              agent-ready                         situation.md
+              design tokens                       trace.md
+                                                  critique.md
                   │                                  │
                   └──────────── agent reads ─────────┘
                                   both halves
@@ -103,38 +105,45 @@ Procedural protocols tell the agent **how to do the work**. Perceptual protocols
 
 ## Composing as a system
 
-The five released protocols are not five discrete tools. They compose into a workflow.
+The six released protocols are not six discrete tools. They compose into a workflow.
 
 ```
-            STATIC IDENTITY                    CONDITIONAL LOGIC
-              mood.md   ──┐                     situation.md
-              vocab.md  ──┤                         │
-                          │                         │
-                          ├─────► agent reads ◄─────┤
+            PROJECT BRIEF                        CONDITIONAL LOGIC
+              mood.md      (intent)                situation.md
+              vocab.md     (static qualities)         │
+              motion.md    (motion qualities)         │
+                                                      │
+                          ┌───────► agent reads ◄─────┤
                           │       all of these
                           │           ↓
-                          │     generates work
+                          │     generates the work
                           │           ↓
                           │       critique.md ──► feeds back
                           │                       into mood / vocab /
-                          │                       situation
+                          │                       motion / situation
                           ↓
                    (trace.md reads
                     existing work
-                    in the same format)
+                    into the same formats)
 ```
 
-Two layers describe what the brand is and how it adapts. A generation step turns the brief into output. A feedback loop assesses the output and sharpens the brief. A parallel analytical channel reads existing work — yours, a competitor's, a piece of inspiration — into the same format.
+Three tiers of input describe what the brand is: intent, vocabulary, conditional weighting. A generation step turns the brief into output. A feedback loop assesses the output and sharpens the brief. A parallel analytical channel reads existing work — yours, a competitor's, a piece of inspiration — into the same formats.
 
 The point of building it this way is that no protocol has to do all the work. Each one is small. Together they are sufficient.
+
+## Static and motion: two vocabularies, one identity
+
+vocab-protocol and motion-protocol are sibling vocabularies. They produce different files (`vocab.md` and `motion.md`) because they describe different perceptual layers — what the product looks like still, and how it moves. Both can be present in the same project brief.
+
+Some products are coherent across both. Linear's static identity (precise, restrained, dense) and motion identity (snappy, mechanical, invisible) reinforce each other — the same brand expressed in two registers. Other products deliberately contradict themselves between the two layers, and the contradiction is itself a design choice. The protocols let you specify either way.
 
 ---
 
 ## Roadmap
 
-**Now (v0.1):** Five working protocols cover the project-level perceptual workflow end to end. Declare intent (mood). Share language (vocab). Weight by context (situation). Read existing work (trace). Close the loop on output (critique).
+**Now (v0.1):** Six working protocols cover the project-level perceptual workflow end to end. Declare intent (mood). Share language for static qualities (vocab) and motion qualities (motion). Weight by context (situation). Read existing work (trace). Close the loop on output (critique).
 
-**Next:** Real-world use of the five protocols on actual projects. Surfacing the vocabulary gaps that need new terms, the situation patterns that recur across products, and the integration moves that make the family work together. Worked examples for each protocol drawn from real (not synthetic) projects.
+**Next:** Real-world use of the six protocols on actual projects. Surfacing the vocabulary gaps that need new terms, the situation patterns that recur across products, the motion qualities that the canonical set doesn't cover, and the integration moves that make the family work together. Worked examples for each protocol drawn from real (not synthetic) projects.
 
 **After that:** taste-protocol, a designer-personal cross-project preferences layer that sits above the project-scoped protocols. Sequenced for after the project-level protocols have been road-tested.
 
@@ -147,8 +156,9 @@ This list is a hypothesis, not a contract. The discipline is too young to plan w
 The most useful contributions are:
 
 - **New vocabulary terms** for `vocab-protocol`. The taxonomy is open and growing. Send a pull request with the term, a one-line definition, two example references, and two anti-references.
-- **Situation patterns** for `situation-protocol`. Common context families that recur across products (healthcare, finance, government, education) are especially valuable. Send a pull request with a worked situation entry and the kind of product it applies to.
-- **Worked examples** for any protocol. A real mood.md / vocab.md / situation.md / trace.md / critique.md from your own work is more useful than any spec.
+- **New motion terms** for `motion-protocol`. Same bar as vocab terms, with the additional requirement of technical anchors (durations, easing, gesture response).
+- **Situation patterns** for `situation-protocol`. Common context families that recur across products (healthcare, finance, government, education) are especially valuable.
+- **Worked examples** for any protocol. A real `mood.md`, `vocab.md`, `motion.md`, `situation.md`, `trace.md`, or `critique.md` from your own work is more useful than any spec.
 - **New protocols.** If you've found a gap, something designers do that agents can't yet see, open an issue. Sketch the format. We'll figure out together whether it belongs in this family or somewhere else.
 
 See `CONTRIBUTING.md` inside each sub-protocol for the specifics.
