@@ -1,14 +1,12 @@
 # Perceptual Protocols
 
-> There's no protocol for how things should feel.
+> This project is all about how things should feel.
 
-We've spent the last two years building increasingly sophisticated ways to give AI agents procedural knowledge. How to write CSS. How to follow a design system. How to obey our rules. All text. All procedural. All blind to the visual.
+We've spent the last two years building increasingly sophisticated ways to give AI agents procedural knowledge. How to write CSS. How to follow a design system. How to obey our rules. Owl-Listener contains a lot of procedural design skills and methods that are all machine readbale and made for producing great design with LLMs. This collection is more about telling the LLM how things should feel with great accuracy so you can get rich and meaningful outcomes.
 
-That work is necessary. It is also half the job.
+Designers, musicians, writers, architects, and every creative human spend their career cultivating, is **perceptual**. Taste. Judgement. The ability to look at something and know it is wrong before you can articulate why. We've been encoding the **how** and ignoring the **what it should feel like**.
 
-The other half, the half that designers, musicians, writers, architects, and every creative human spend their career cultivating, is **perceptual**. Taste. Judgement. The ability to look at something and know it is wrong before you can articulate why. We've been encoding the **how** and ignoring the **what it should feel like**.
-
-This is a family of protocols for the other half.
+This is a family of protocols for this.
 
 ---
 
