@@ -214,7 +214,7 @@ A short, opinionated list. The work this builds on.
 - Richard Shusterman — Somaesthetics. Bodily aesthetics, for when the work needs to consider what design feels like in a body, not just on a screen.
 - Donald Norman — Emotional Design. The visceral, behavioural, reflective trio.
 - Marc Hassenzahl — hedonic vs pragmatic UX. Two-axis model that makes feeling arguments legible to PMs.
-- Brian Eno — A Year With Swollen Appendices and the *Music for Airports* liner notes. The founding texts of ambient as designed perceptual environment — and the philosophical anchor for cross-modal briefing.
+- Brian Eno — A Year With Swollen Appendices and the *Music for Airports* liner notes. 
 
 The longer reading list with notes lives in `READING.md`.
 
