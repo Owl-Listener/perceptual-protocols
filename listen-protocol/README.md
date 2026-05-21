@@ -27,7 +27,7 @@ Four common uses:
 - A canonical starter vocabulary of six sound-native qualities — see [`sound.md`](./sound.md)
 - A prompt for extracting a project-specific perceptual brief from audio references — see [`PROMPT.md`](./PROMPT.md)
 - A format spec defining the `listen.md` output — see [`FORMAT.md`](./FORMAT.md)
-- A worked example tracing Brian Eno's *Music for Airports* — see [`examples/example-music-for-airports.md`](./examples/example-music-for-airports.md)
+- A worked example tracing Brian Eno's *Music for Airports* — see [`example-music-for-airports.md`](./example-music-for-airports.md)
 
 ## On the input modality problem
 
@@ -84,7 +84,7 @@ Full definitions, technical anchors, references, and anti-references live in [`s
 
 ## A worked example
 
-See [`examples/example-music-for-airports.md`](./examples/example-music-for-airports.md) for a `listen.md` extracted from Brian Eno's 1978 album *Music for Airports* — a work explicitly designed as a perceptual environment. Useful as a reference for what good output looks like, and as evidence that the cross-modal translation (sound → visual brief) produces something coherent and useful.
+See [`example-music-for-airports.md`](./example-music-for-airports.md) for a `listen.md` extracted from Brian Eno's 1978 album *Music for Airports* — a work explicitly designed as a perceptual environment. Useful as a reference for what good output looks like, and as evidence that the cross-modal translation (sound → visual brief) produces something coherent and useful.
 
 ## Open caveats worth being honest about
 
