@@ -59,13 +59,6 @@ The output is a `listen.md`, defined in [`FORMAT.md`](./FORMAT.md). It uses the 
 
 ## How it composes with the family
 
-visual moodboard ────► mood-protocol  ────► mood.md  ─┐
-existing UI      ────► trace-protocol ────► trace.md ─┤
-audio references ────► listen-protocol ───► listen.md ─┼─► agent reads any or all
-your project intent ──► vocab.md / sound.md / motion.md / situation.md ──┘     to generate
-↓
-critique.md
-
 All three brief-producing protocols (mood, trace, listen) produce format-compatible files that the agent can read together or separately. A project might have:
 
 - A visual `mood.md` (from Pinterest references)
