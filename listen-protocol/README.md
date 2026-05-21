@@ -58,3 +58,49 @@ The PROMPT.md explicitly invites combinations. Don't fight the tool — use what
 The output is a `listen.md`, defined in [`FORMAT.md`](./FORMAT.md). It uses the same underlying structure as `mood.md` and `trace.md`, with one addition: a Sound-anchors section that captures the audio-specific qualities (using `sound.md` terms) before translating them to visual and motion implications. This makes the cross-modal translation step *visible and inspectable* rather than hidden in the prompt.
 
 ## How it composes with the family
+
+visual moodboard ────► mood-protocol  ────► mood.md  ─┐
+existing UI      ────► trace-protocol ────► trace.md ─┤
+audio references ────► listen-protocol ───► listen.md ─┼─► agent reads any or all
+your project intent ──► vocab.md / sound.md / motion.md / situation.md ──┘     to generate
+↓
+critique.md
+
+All three brief-producing protocols (mood, trace, listen) produce format-compatible files that the agent can read together or separately. A project might have:
+
+- A visual `mood.md` (from Pinterest references)
+- A `listen.md` (from the soundtrack the designer associates with the project)
+- A `vocab.md` (the shared static vocabulary)
+- A `sound.md` (the shared sound vocabulary)
+- A `motion.md` (for temporal qualities)
+
+The agent reading all five has a richer perceptual brief than any single-modal approach can offer.
+
+## The canonical sound vocabulary
+
+Six terms, chosen because they cover distinct sonic territory and are immediately recognisable to anyone who works with audio:
+
+- **timbre** — the character/texture of a sound (a piano vs a clarinet)
+- **register** — pitch-position dominance (bass-heavy vs treble-led)
+- **spaciousness** — the perceived acoustic space (closet vs cathedral)
+- **pulse** — rhythmic energy and beat-orientation
+- **dynamics** — range from quiet to loud and how it shifts
+- **decay** — how sounds end (sharp cut vs long fade)
+
+Full definitions, technical anchors, references, and anti-references live in [`sound.md`](./sound.md). Many sound qualities (warmth, density, intimacy, restraint) overlap with `vocab.md`'s static qualities — the brief can and should reach for those terms when they apply, only using sound.md terms for the qualities that are genuinely sound-native.
+
+## A worked example
+
+See [`examples/example-music-for-airports.md`](./examples/example-music-for-airports.md) for a `listen.md` extracted from Brian Eno's 1978 album *Music for Airports* — a work explicitly designed as a perceptual environment. Useful as a reference for what good output looks like, and as evidence that the cross-modal translation (sound → visual brief) produces something coherent and useful.
+
+## Open caveats worth being honest about
+
+**Cross-modal translation isn't a science.** There are cultural conventions about which sounds map to which visual qualities (low register = warm/dark, high register = bright/cool), but no universal mapping. The protocol does its best to reason from these conventions, but the translation always has interpretive choices. Treat a `listen.md` as a starting point for argument, not a settled finding.
+
+**The "described vs heard" gap.** When the model reads an audio reference by name, the brief is anchored to *cultural reputation* rather than *acoustic content*. That's fine, but it's a different kind of brief than one produced from direct listening. The PROMPT.md asks the model to flag which source mode it used.
+
+**Validating sound → visual transfer is harder than visual → visual.** The trace-triangulation workflow that closes the loop on mood-protocol and trace-protocol gets more complicated here, because the agent's output is usually visual and the brief was sonic. We don't yet have a clean methodology for this. For now, treat listen-protocol's output as a brief input, not a fully closed loop.
+
+## License
+
+MIT — see the family root.
