@@ -8,7 +8,7 @@ Part of the [Perceptual Protocols](../) family.
 
 ## What this is for
 
-Most designers already work to music or audio while designing. That soundtrack is implicitly shaping their decisions — its pacing, its warmth, its register, its space. listen-protocol makes that implicit signal explicit, so an agent can read it and translate it into perceptual choices in the work.
+listen-protocol makes an implicit signal explicit, so an agent can read it and translate it into perceptual choices in the work.
 
 mood-protocol takes visual references and produces a brief. trace-protocol reads existing UIs. listen-protocol does the same job for the auditory dimension — and the output is format-compatible with the other two so the family composes cleanly.
 
