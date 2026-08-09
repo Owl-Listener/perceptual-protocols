@@ -4,7 +4,7 @@
 
 **Baseline:** This product's `mood.md` describes a hospital that is warm, precise, restrained, authoritative, and intimate. Across every situation, the brand never abandons any of these qualities entirely — what changes is which ones lead.
 
-**Vocabulary used:** Canonical [`vocab.md`](../../vocab-protocol/vocab.md) from the perceptual-protocols family.
+**Vocabulary used:** Canonical [`vocab.md`](../../vocab-protocol/VOCAB.md) from the perceptual-protocols family.
 
 This is a worked example of a `situation.md`. Useful as a calibration reference when reading your own first drafts. The file below shows what good output looks like — opinionated, anchored, and willing to name tensions.
 

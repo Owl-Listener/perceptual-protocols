@@ -24,7 +24,7 @@ Four common uses:
 
 ## What this gives you
 
-- A canonical starter vocabulary of six sound-native qualities — see [`sound.md`](./sound.md)
+- A canonical starter vocabulary of six sound-native qualities — see [`sound.md`](./SOUND.md)
 - A prompt for extracting a project-specific perceptual brief from audio references — see [`PROMPT.md`](./PROMPT.md)
 - A format spec defining the `listen.md` output — see [`FORMAT.md`](./FORMAT.md)
 - A worked example tracing Brian Eno's *Music for Airports* — see [`example-music-for-airports.md`](./example-music-for-airports.md)
@@ -80,7 +80,7 @@ Six terms, chosen because they cover distinct sonic territory and are immediatel
 - **dynamics** — range from quiet to loud and how it shifts
 - **decay** — how sounds end (sharp cut vs long fade)
 
-Full definitions, technical anchors, references, and anti-references live in [`sound.md`](./sound.md). Many sound qualities (warmth, density, intimacy, restraint) overlap with `vocab.md`'s static qualities — the brief can and should reach for those terms when they apply, only using sound.md terms for the qualities that are genuinely sound-native.
+Full definitions, technical anchors, references, and anti-references live in [`sound.md`](./SOUND.md). Many sound qualities (warmth, density, intimacy, restraint) overlap with `vocab.md`'s static qualities — the brief can and should reach for those terms when they apply, only using sound.md terms for the qualities that are genuinely sound-native.
 
 ## A worked example
 

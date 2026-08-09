@@ -34,7 +34,7 @@ Four common uses:
 
 ## Output format
 
-The output is a `trace.md`, using the same structure as `mood.md`. See [`mood-protocol/FORMAT.md`](../mood-protocol/FORMAT.md) for the spec.
+The output is a `trace.md`, using the same structure as `mood.md`. See [`mood-protocol/FORMAT.md`](../mood-protocol/SPEC.md) for the spec.
 
 This means a `trace.md` and a `mood.md` are interchangeable on the consuming side. Any agent that knows how to read one knows how to read the other. The different default filename is just for organisation — when you have a project with three competitor traces and your own mood file, the filenames tell you which is which.
 

@@ -57,4 +57,4 @@ The asymmetry is the most important finding. **Not every quality the brief named
 
 The strongest single-quality finding was the validation of `refuge` — proposed by mood-protocol, structurally encoded in output, picked up independently by trace. That's three independent runs converging on the same term. It's the closest thing to canonical-vocabulary validation evidence the family has produced.
 
-See [LEARNINGS.md](./LEARNINGS.md) for what these findings suggest for the family — proposed updates to canonical vocab.md, a documented translation gap for `materiality`, a methodological recommendation about brief-execution prompts, and an open epistemological question about the trace step's contamination risk.
+What these findings suggest for the family: proposed updates to canonical `vocab.md`, a documented translation gap for `materiality`, a methodological recommendation about brief-execution prompts, and an open epistemological question about the trace step's contamination risk. The standalone write-up of those implications was never published — the summary above and the [methodological caveats](./README.md) are the record.

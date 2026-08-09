@@ -19,13 +19,17 @@ Each protocol does one thing and stops. Each one outputs a plain markdown file t
 | [mood-protocol](./mood-protocol) | Declare what the product should feel like, from visual references | `mood.md` | Released (v0.1) |
 | [vocab-protocol](./vocab-protocol) | Share a vocabulary for the static qualities you mean | `vocab.md` | Released (v0.1) |
 | [motion-protocol](./motion-protocol) | Share a vocabulary for how the product should move | `motion.md` | Released (v0.1) |
+| [voice-protocol](./voice-protocol) | Specify how the brand writes — personality, register, mechanics | `voice.md` | Released (v0.1) |
 | [listen-protocol](./listen-protocol) | Author a brief from audio references; share sound vocabulary | `listen.md` + `sound.md` | Released (v0.1) |
 | [situation-protocol](./situation-protocol) | Weight the qualities differently by context | `situation.md` | Released (v0.1) |
+| [tokens-protocol](./tokens-protocol) | Annotate the design system you already have with intent | `tokens.md` | Released (v0.1) |
 | [trace-protocol](./trace-protocol) | Read an existing UI and capture its implicit mood | `trace.md` | Released (v0.1) |
 | [critique-protocol](./critique-protocol) | Critique agent output against the brief | `critique.md` | Released (v0.1) |
-| [taste-protocol](./taste-protocol) | Capture a designer's persistent preferences across projects | `taste.md` | Planned |
+| `taste-protocol` | Capture a designer's persistent preferences across projects | `taste.md` | Planned |
 
-The order tells the story of how the system runs. Declare intent (visual, then sonic). Share vocabulary across static, motion, and sound modalities. Encode conditional weighting. Read existing work. Close the feedback loop.
+The order tells the story of how the system runs. Declare intent (visual, then sonic). Share vocabulary across static, motion, verbal, and sound modalities. Encode conditional weighting. Annotate the system once one exists. Read existing work. Close the feedback loop.
+
+**One repo.** `mood-protocol`, `voice-protocol`, and `tokens-protocol` used to live in separate repositories. They don't any more — they're folders in here, alongside the rest of the family. The old repositories are archived and still resolve, so existing links keep working, but this is the only place any of them are maintained.
 
 ---
 
@@ -47,6 +51,37 @@ From that moment on, any agent that can read your project can read your mood. As
 
 ---
 
+## Install
+
+There is one install, and it is copying markdown files into your project. Pick whichever of these you prefer; they do the same thing.
+
+**By hand.** Open the folder for the protocol you want, copy its template file into your project root, and rename it to lowercase — `vocab-protocol/VOCAB.md` becomes `vocab.md`, `voice-protocol/VOICE.md` becomes `voice.md`, and so on. This is the canonical path and it will always work.
+
+**With the script.** For the case where you want several at once:
+
+```bash
+git clone https://github.com/Owl-Listener/perceptual-protocols
+cd perceptual-protocols
+./install.sh --into ~/projects/my-app vocab voice tokens
+```
+
+Run `./install.sh --list` to see what's available, or `./install.sh --into <dir> all` to take everything. It is POSIX shell, it copies files and nothing else, it never overwrites without `--force`, and it makes no network calls. If it ever does more than that, it has become a dependency and should be deleted.
+
+**What you end up with**, in your project root:
+
+```
+my-app/
+├── mood.md         ← what it should feel like
+├── vocab.md        ← what the words in mood.md mean
+├── voice.md        ← how it writes
+├── tokens.md       ← what the design system means
+└── ...
+```
+
+Then point your agent at them: add them to `CLAUDE.md`, your Cursor rules, your system prompt, or just say *"read mood.md and voice.md before you start"*. There is no build step, no schema, no validator, and nothing to keep running.
+
+---
+
 ## What makes these a family
 
 Six principles. All six apply to every protocol in here.
@@ -57,11 +92,11 @@ Six principles. All six apply to every protocol in here.
 
 **Model-agnostic.** Anything that can read text can use these. Claude, Gemini, ChatGPT, Cursor, Copilot, the model you'll be using in two years.
 
-**Single-purpose.** Each protocol does one thing and stops. mood-protocol is not vocab-protocol is not motion-protocol is not listen-protocol. They compose. They do not bloat.
+**Single-purpose.** Each protocol does one thing and stops. mood-protocol is not vocab-protocol is not voice-protocol is not tokens-protocol. They compose. They do not bloat.
 
 **No setup is the default.** If a designer can't use a protocol in sixty seconds with the AI they already have, the protocol has failed. There can be a script for power users, but the prompt and the format spec are the canonical path.
 
-**Anti-references are first-class.** Knowing what to avoid carries as much information as knowing what to pursue. "NOT corporate dashboard" closes off an entire territory of bad decisions. Every protocol that handles taste handles its opposite.
+**Anti-references are first-class.** Knowing what to avoid carries as much information as knowing what to pursue. "NOT corporate dashboard" closes off an entire territory of bad decisions. Every protocol that handles taste handles its opposite — including the ones that look like specifications. `voice.md` pairs every descriptor with the line it doesn't cross; `tokens.md` gives every token a "do not use for."
 
 ---
 
@@ -71,9 +106,9 @@ You can use these without reading this section. But it is the reason they exist.
 
 For most of computing history, the interface had to be designed for reuse. A design system was an artifact of scarcity. You couldn't afford to make a different interface for every person at every moment, so you built one carefully and shipped it to everyone. Polish was the proof of care.
 
-That world is ending. Generative interfaces are arriving. Fluid, personalised, regenerated for each user in the moment of use. When the interface is made on the fly, the design system stops being a library and starts being something more like a vocabulary. The agent needs to know not just what to build, but what the result should feel like, how it should move, how it should sound, and how that feeling should adapt to who is looking and when.
+That world is ending. Generative interfaces are arriving. Fluid, personalised, regenerated for each user in the moment of use. When the interface is made on the fly, the design system stops being a library and starts being something more like a vocabulary. The agent needs to know not just what to build, but what the result should feel like, how it should move, how it should sound, how it should talk, and how that feeling should adapt to who is looking and when.
 
-Designers already know how to communicate this. We have moodboards. We have anti-references. We have playlists. We have private vocabularies for the qualities of a thing. We have implicit knowledge about how a clinical dashboard should feel different from a patient portal, and how a snappy product moves differently from a calm one, and how a bossa nova playlist shapes the design differently from a punk one. The problem is that all of this lives in our heads, in Figma files, on pinned walls, in personal Spotify libraries. In places agents cannot see.
+Designers already know how to communicate this. We have moodboards. We have anti-references. We have playlists. We have private vocabularies for the qualities of a thing. We have tone-of-voice decks and token libraries. We have implicit knowledge about how a clinical dashboard should feel different from a patient portal, and how a snappy product moves differently from a calm one, and how a bossa nova playlist shapes the design differently from a punk one. The problem is that all of this lives in our heads, in Figma files, on pinned walls, in PDFs, in personal Spotify libraries. In places agents cannot see.
 
 These protocols are bridges. Each one takes something designers already do, and turns it into a file an agent can read.
 
@@ -94,30 +129,62 @@ The family sits on the perceptual side of a bigger gap in how we talk to agents.
               cursor rules                        motion.md
               agent-ready                         sound.md
               design tokens                       listen.md
-                                                  situation.md
-                                                  trace.md
-                                                  critique.md
-                  │                                  │
-                  └──────────── agent reads ─────────┘
-                                  both halves
+                    │                             voice.md
+                    │                             situation.md
+                    │                             trace.md
+                    │                             critique.md
+                    │                                  │
+                    └──────────► tokens.md ◄───────────┘
+                              values from the left,
+                              intent from the right
+                                       │
+                                       ▼
+                            agent reads all of it
 ```
 
-Procedural protocols tell the agent **how to do the work**. Perceptual protocols tell the agent **what the work should feel like when it's done** — visually, temporally, and sonically. An agent with only the procedural half builds competently and wrongly. An agent with both starts to feel like a collaborator.
+Procedural protocols tell the agent **how to do the work**. Perceptual protocols tell the agent **what the work should feel like when it's done** — visually, temporally, sonically, and verbally. An agent with only the procedural half builds competently and wrongly. An agent with both starts to feel like a collaborator.
+
+`tokens.md` is the one file that sits in the join. Your design tokens are procedural — they're values a machine can already read. `tokens.md` annotates them with the intent that never made it into the JSON. It is the handoff point between the two halves, which is why it arrives late in a project and why it is the protocol most likely to drift.
+
+---
+
+## The design.md story
+
+Google Labs published [`DESIGN.md`](https://github.com/google-labs-code/design.md) in April 2026 — a single manifest for brand and system, with YAML tokens, components, and established visual identity in one file. It's a good idea, and the obvious question is why this family isn't just that file.
+
+The answer is that `DESIGN.md` bundles three jobs that have different lifecycles.
+
+| The job | When it's true | This family |
+|---|---|---|
+| What should this feel like? | Week one, before a system exists | `mood.md`, `vocab.md` |
+| How does the brand talk? | Once, then slowly drifts | `voice.md` |
+| What does the system mean? | Only once there is a system | `tokens.md` |
+
+Bundling them means the file can't be written until the slowest part is ready — you can't fill in the tokens section in week one, so the intent doesn't get written down either, so the system gets built without it. That's the failure this family is designed around. `mood.md` exists precisely so there is something to write before there is anything to specify.
+
+So a typical project runs the arc rather than the file. Generate `mood.md` from moodboards in week one. Write `voice.md` as soon as there's copy worth describing. Derive tokens in week three and annotate them with `tokens.md`. Run all of it alongside `CLAUDE.md` for the rest of the build.
+
+If you already have a mature design system and a settled brand, `DESIGN.md` is a reasonable single file and you should use it. This family is for the part of a project where the system doesn't exist yet, and for the fact that intent keeps mattering after it does.
 
 ---
 
 ## Composing as a system
 
-The seven released protocols are not seven discrete tools. They compose into a workflow with three input layers, a synthesis step, a feedback loop, and an analytical channel.
+The nine released protocols are not nine discrete tools. They compose into a workflow with three input layers, a system layer, a synthesis step, a feedback loop, and an analytical channel.
 
 ```
     AUTHORING LAYER          SHARED VOCABULARY         CONDITIONAL LOGIC
    from your own sources      vocab.md  (static)         situation.md
-   mood.md   (visual)         motion.md (motion)              │
+   mood.md   (visual)         motion.md (temporal)            │
    listen.md (audio)          sound.md  (sonic)               │
+                              voice.md  (verbal)              │
                                                               │
                           ┌───────► agent reads any ◄─────────┤
                           │       combination of these
+                          │           ↓
+                          │       tokens.md
+                          │    (the system layer — present
+                          │     once a system exists)
                           │           ↓
                           │     generates the work
                           │           ↓
@@ -132,18 +199,18 @@ The seven released protocols are not seven discrete tools. They compose into a w
 The architecture has three input layers:
 
 - **Authoring layer** — `mood.md` (from your visual references) and `listen.md` (from your audio references). Both are briefs you author from sources that mean something to you.
-- **Shared vocabulary** — `vocab.md`, `motion.md`, `sound.md`. Three perceptual modalities (static, temporal, sonic), three vocabularies the briefs use to anchor their language. Designed to compose.
+- **Shared vocabulary** — `vocab.md`, `motion.md`, `sound.md`, `voice.md`. Four perceptual modalities (static, temporal, sonic, verbal), four vocabularies the briefs use to anchor their language. Designed to compose.
 - **Conditional logic** — `situation.md`. Weights the vocabulary differently by context.
 
-Then a generation step. Then a feedback loop (`critique.md`) that can sharpen any of the input layers for the next iteration. And `trace.md` as a parallel channel that reads existing artifacts into the same formats — useful for competitive analysis, brand archaeology, and self-audit.
+Then a system layer (`tokens.md`) once there is a system to annotate. Then a generation step. Then a feedback loop (`critique.md`) that can sharpen any of the input layers for the next iteration. And `trace.md` as a parallel channel that reads existing artifacts into the same formats — useful for competitive analysis, brand archaeology, and self-audit.
 
 The point of building it this way is that no protocol has to do all the work. Each one is small. Together they are sufficient.
 
-## Three vocabularies, one identity
+## Four vocabularies, one identity
 
-`vocab-protocol`, `motion-protocol`, and `sound.md` (which lives inside listen-protocol) are sibling vocabularies. They produce different files because they describe different perceptual layers — what the product looks like still, how it moves, and how it sounds. Each can be present in the same project brief.
+`vocab-protocol`, `motion-protocol`, `voice-protocol`, and `sound.md` (which lives inside listen-protocol) are sibling vocabularies. They produce different files because they describe different perceptual layers — what the product looks like still, how it moves, how it sounds, and how it talks. Each can be present in the same project brief.
 
-A coherent identity uses all three to reinforce each other. Linear's static identity (precise, restrained, dense) and motion identity (snappy, mechanical, invisible) reinforce each other — the same brand expressed in two registers. A brand briefed from Brian Eno's *Music for Airports* would inherit a sound identity (spacious, pulseless, long-decayed) that implies a static identity (warmth, restraint, generous whitespace) and a motion identity (calm, glassy, invisible) — three modalities composing into one perceptual posture.
+A coherent identity uses all four to reinforce each other. Linear's static identity (precise, restrained, dense) and motion identity (snappy, mechanical, invisible) reinforce each other — the same brand expressed in two registers, and its writing is recognisably the third. A brand briefed from Brian Eno's *Music for Airports* would inherit a sound identity (spacious, pulseless, long-decayed) that implies a static identity (warmth, restraint, generous whitespace), a motion identity (calm, glassy, invisible), and a verbal identity that would never use an exclamation mark — four modalities composing into one perceptual posture.
 
 Some products deliberately contradict themselves between the layers. That's a design choice too, and the protocols let you specify it explicitly. The vocabularies don't enforce coherence; they make coherence (or its deliberate absence) visible and discussable.
 
@@ -157,7 +224,7 @@ The exit is **trace-protocol triangulation.**
 
 The workflow:
 
-1. Author your `mood.md` (and/or `listen.md`, plus `vocab.md`, optionally `motion.md`, `sound.md`, and `situation.md`).
+1. Author your `mood.md` (and/or `listen.md`, plus `vocab.md`, optionally `motion.md`, `sound.md`, `voice.md`, and `situation.md`).
 2. Brief the agent with these files. Generate the output.
 3. Run **`trace-protocol` on the output — without giving the trace agent your `mood.md`.** Let it read the output cold.
 4. Compare the resulting `trace.md` to your original `mood.md`, quality by quality.
@@ -176,9 +243,9 @@ See [TUTORIAL.md](./TUTORIAL.md) for a hands-on walkthrough of running the trace
 
 ## Roadmap
 
-**Now (v0.1):** Seven working protocols cover the project-level perceptual workflow end to end. Declare intent from visual references (mood) or audio references (listen). Share vocabulary for static (vocab), temporal (motion), and sonic (sound) qualities. Weight by context (situation). Read existing work (trace). Close the loop on output (critique). And: a documented validation workflow that uses the family's own pieces to test whether the brief is actually working.
+**Now (v0.1):** Nine working protocols cover the project-level perceptual workflow end to end, in one repository. Declare intent from visual references (mood) or audio references (listen). Share vocabulary for static (vocab), temporal (motion), sonic (sound), and verbal (voice) qualities. Weight by context (situation). Annotate the design system once it exists (tokens). Read existing work (trace). Close the loop on output (critique). And: a documented validation workflow that uses the family's own pieces to test whether the brief is actually working.
 
-**Next:** Real-world use of the seven protocols on actual projects. Surfacing the vocabulary gaps that need new terms across all three modalities, the situation patterns that recur across products, the cross-modal translation patterns that hold up under iteration, and the integration moves that make the family work together. Worked examples for each protocol drawn from real (not synthetic) projects. Empirical testing of the trace-triangulation workflow.
+**Next:** Real-world use of the nine protocols on actual projects. Surfacing the vocabulary gaps that need new terms across all four modalities, the situation patterns that recur across products, the cross-modal translation patterns that hold up under iteration, and the integration moves that make the family work together. Worked examples for each protocol drawn from real (not synthetic) projects. Empirical testing of the trace-triangulation workflow. Evidence on whether `tokens.md` actually stays in sync in practice, or whether the drift problem needs tooling rather than discipline.
 
 **After that:** taste-protocol, a designer-personal cross-project preferences layer that sits above the project-scoped protocols. Sequenced for after the project-level protocols have been road-tested. Possibly `alignment-protocol`, if the manual trace-diff workflow proves valuable enough to formalise. Possibly cross-modal validation tooling — the trace-triangulation workflow needs extension for cases where the brief is sonic but the output is visual.
 
@@ -193,13 +260,15 @@ The most useful contributions are:
 - **New vocabulary terms** for `vocab-protocol`. The taxonomy is open and growing. Send a pull request with the term, a one-line definition, two example references, and two anti-references.
 - **New motion terms** for `motion-protocol`. Same bar as vocab terms, with the additional requirement of technical anchors (durations, easing, gesture response).
 - **New sound terms** for `sound.md` inside listen-protocol. Same bar, with technical anchors where applicable (frequency range, dynamic range, reverberation time).
+- **Voice mechanics that generalise** for `voice-protocol`. Rules that are enforceable across brands rather than specific to one — the kind a reviewer could apply without asking the author.
+- **Token usage rules that recur** for `tokens-protocol`. The "do not use for" column is where the value is, and the common misuses are common across products.
 - **Situation patterns** for `situation-protocol`. Common context families that recur across products (healthcare, finance, government, education) are especially valuable.
-- **Worked examples** for any protocol. A real `mood.md`, `vocab.md`, `motion.md`, `listen.md`, `situation.md`, `trace.md`, or `critique.md` from your own work is more useful than any spec.
+- **Worked examples** for any protocol. A real `mood.md`, `vocab.md`, `motion.md`, `voice.md`, `listen.md`, `situation.md`, `tokens.md`, `trace.md`, or `critique.md` from your own work is more useful than any spec.
 - **Trace-triangulation case studies.** If you've run the validation workflow on a real project, write up what you found — which qualities transferred to output, which didn't, and what you learned about either the brief or the agent.
 - **Cross-modal case studies.** If you've used `listen-protocol` to brief a visual project (or vice versa), write up how the cross-modal translation actually held up. We have very little empirical data here yet.
 - **New protocols.** If you've found a gap, something designers do that agents can't yet see, open an issue. Sketch the format. We'll figure out together whether it belongs in this family or somewhere else.
 
-See `CONTRIBUTING.md` inside each sub-protocol for the specifics.
+Each sub-protocol's `FORMAT.md` is the spec its contributions are held to.
 
 ---
 
@@ -222,7 +291,7 @@ The longer reading list with notes lives in `READING.md`.
 
 ## License
 
-MIT. See `LICENSE`.
+MIT. See [LICENSE](./LICENSE).
 
 ---
 

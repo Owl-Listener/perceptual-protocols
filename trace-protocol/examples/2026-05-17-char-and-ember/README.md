@@ -10,7 +10,7 @@ A complete experimental loop, end to end:
 2. The mood-protocol prompt was used to extract a structured `mood.md` from those references — anchored to the canonical perceptual vocabulary, proposing three new project-specific terms (`refuge`, `patina`, `ember`).
 3. The mood.md was used as the brief for an AI agent designing a landing page hero for a single-occupancy cabin booking platform. The agent produced a detailed `output.md`.
 4. A trace was run on the output (with the methodological caveats noted below) to read what perceptual qualities the output actually communicated, blind to the original brief.
-5. The two documents were compared. The findings are documented in `LEARNINGS.md`.
+5. The two documents were compared. The findings are documented in the summary at the end of `comparison.md`.
 
 ## Files in this folder
 
@@ -18,14 +18,14 @@ A complete experimental loop, end to end:
 - `mood.md` — the brief extracted from the Pinterest moodboard (Step 1 output)
 - `output.md` — the landing page hero design produced from the brief (Step 2 output)
 - `trace.md` — the blind reading of the output (Step 3 output)
-- `comparison.md` — a quality-by-quality alignment between mood.md and trace.md (Step 4 output)
-- `LEARNINGS.md` — four findings from the experiment and what they suggest for the family
+- `comparison.md` — a quality-by-quality alignment between mood.md and trace.md, and the findings (Step 4 output)
+- `moodboard-01.png`, `moodboard-02.png` — the Pinterest references the brief was extracted from
 
 ## Why this example matters
 
 Before this run, the trace-protocol family had only one worked example — a synthetic decoding of Linear's interface. That example demonstrated the *format* but not the *epistemology*: nobody had actually used the family to test whether a brief authored from a moodboard transfers to agent output.
 
-This experiment is the first evidence we have. It validated one proposed canonical term (`refuge`), identified a translation gap for the family's most-used term (`materiality`), and surfaced a methodological recommendation about how to structure brief-execution prompts. All three findings are documented in `LEARNINGS.md`.
+This experiment is the first evidence we have. It validated one proposed canonical term (`refuge`), identified a translation gap for the family's most-used term (`materiality`), and surfaced a methodological recommendation about how to structure brief-execution prompts. All three findings are documented in the summary at the end of `comparison.md`.
 
 It also failed in a useful way: the trace step was not fully blind. The implications of that partial failure are part of what makes the example instructive.
 
@@ -47,10 +47,9 @@ Recommended order:
 2. **Read `mood.md`** — to see what a substantive brief looks like when extracted from a real moodboard.
 3. **Read `output.md`** — to see what the agent produced from the brief.
 4. **Read `trace.md`** — to see what an honest, anchored, confidence-graded blind reading looks like.
-5. **Read `comparison.md`** — to see the quality-by-quality alignment between brief and trace.
-6. **End with `LEARNINGS.md`** — for the four actionable findings and what they mean for the family.
+5. **End with `comparison.md`** — for the quality-by-quality alignment between brief and trace, and the findings in its closing summary.
 
-If you only have time for two files, read `mood.md` and `LEARNINGS.md`. The brief shows what good looks like; the learnings show what the experiment proved.
+If you only have time for two files, read `mood.md` and the summary at the end of `comparison.md`. The brief shows what good looks like; the summary shows what the experiment proved.
 
 ## Reproducing this experiment
 

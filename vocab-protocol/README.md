@@ -8,7 +8,7 @@ Part of the [Perceptual Protocols](../) family.
 
 ## What this gives you
 
-- A canonical starter vocabulary of ten aesthetic qualities — see [`vocab.md`](./vocab.md)
+- A canonical starter vocabulary of ten aesthetic qualities — see [`vocab.md`](./VOCAB.md)
 - A prompt for extracting a project-specific vocabulary from your work or references — see [`PROMPT.md`](./PROMPT.md)
 - A format spec you can extend — see [`FORMAT.md`](./FORMAT.md)
 
@@ -47,7 +47,7 @@ Ten terms, each chosen because they cover distinct perceptual territory and are 
 - **friction** — productive resistance, the texture of slowness
 - **rhythm** — pacing, repetition, cadence of elements
 
-Full definitions, references, and anti-references live in [`vocab.md`](./vocab.md).
+Full definitions, references, and anti-references live in [`vocab.md`](./VOCAB.md).
 
 ## Why these ten
 
