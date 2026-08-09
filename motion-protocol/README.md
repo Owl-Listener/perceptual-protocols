@@ -16,7 +16,7 @@ motion-protocol is the file where you write down how your product moves, in lang
 
 ## What this gives you
 
-- A canonical starter vocabulary of eight motion qualities — see [`motion.md`](./motion.md)
+- A canonical starter vocabulary of eight motion qualities — see [`motion.md`](./MOTION.md)
 - A prompt for extracting a project-specific motion vocabulary from references — see [`PROMPT.md`](./PROMPT.md)
 - A format spec you can extend — see [`FORMAT.md`](./FORMAT.md)
 
@@ -76,7 +76,7 @@ Eight terms, chosen because they cover distinct motion territory and are immedia
 - **theatrical** — sequenced, choreographed, narrative *(dependent timing, total >1s)*
 - **invisible** — present without announcement *(150–250ms, ease, no flourish)*
 
-Full definitions, references, technical anchors, and anti-references live in [`motion.md`](./motion.md).
+Full definitions, references, technical anchors, and anti-references live in [`motion.md`](./MOTION.md).
 
 ## Composing with the rest of the family
 
@@ -95,7 +95,7 @@ A brief that says *"this product is warm + intimate (vocab); calm + invisible (m
 
 ## A worked example
 
-See [`examples/example-linear-motion.md`](./examples/example-linear-motion.md) for a `motion.md` decoded from Linear's product interface. Complements the static [Linear trace](../trace-protocol/examples/example-linear.md) — read together, the two files describe how Linear's identity expresses across both spatial and temporal dimensions.
+See [`examples/example-linear-motion.md`](./example-linear-motion.md) for a `motion.md` decoded from Linear's product interface. Complements the static [Linear trace](../trace-protocol/examples/example-linear.md) — read together, the two files describe how Linear's identity expresses across both spatial and temporal dimensions.
 
 ## License
 

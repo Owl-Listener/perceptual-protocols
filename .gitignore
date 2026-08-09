@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Environment — never commit API keys
+.env
+.env.*
+!.env.example
+
+# Smoke-test artefacts from running generate_mood.py. Scoped to the repo root
+# and to mood-protocol/, so committed examples — such as
+# mood-protocol/examples/folk-maximalism/mood.md and its mood/ folder — are kept.
+/mood.md
+/mood/
+/mood-protocol/mood.md
+/mood-protocol/mood/
+
+# OS / editor
+.DS_Store
+*.swp

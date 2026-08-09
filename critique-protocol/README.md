@@ -61,7 +61,7 @@ A piece of work can pass critique-protocol with flying colours and still fail a 
 
 ## A worked example
 
-See [`examples/example-critique.md`](./examples/example-critique.md) for a full `critique.md` of a synthetic AI-generated landing page hero, critiqued against a sample mood and the canonical vocab. Useful as a calibration reference when reading your own first drafts.
+See [`examples/example-critique.md`](./example-critique.md) for a full `critique.md` of a synthetic AI-generated landing page hero, critiqued against a sample mood and the canonical vocab. Useful as a calibration reference when reading your own first drafts.
 
 ## License
 

@@ -2,7 +2,7 @@
 
 **Source:** trace-protocol extraction from [Linear](https://linear.app) product interface, May 2026.
 **Surfaces analysed:** Issue list, board view, project page, settings, command palette, marketing site landing.
-**Vocabulary used:** Canonical [vocab.md](../../vocab-protocol/vocab.md) from the perceptual-protocols family.
+**Vocabulary used:** Canonical [vocab.md](../../vocab-protocol/VOCAB.md) from the perceptual-protocols family.
 
 This is a worked example of trace-protocol output. Useful as a calibration reference when reading your own first drafts. The `trace.md` below is the kind of file trace-protocol should produce: anchored, specific, two-sided, honest about uncertainty.
 

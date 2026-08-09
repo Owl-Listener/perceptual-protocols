@@ -2,9 +2,9 @@
 
 **Source:** motion-protocol extraction from [Linear](https://linear.app) product interface, May 2026.
 **Surfaces analysed:** Issue list, command palette, board view, side panel transitions, hover states, modal sheets, page navigation.
-**Vocabulary used:** Canonical [`motion.md`](../motion.md) from the perceptual-protocols family.
+**Vocabulary used:** Canonical [`motion.md`](./MOTION.md) from the perceptual-protocols family.
 
-This is a worked example of motion-protocol output. Read alongside the [Linear static trace](../../trace-protocol/examples/example-linear.md) — together they describe how Linear's identity expresses across both spatial and temporal dimensions. The same product. Two layers of perception.
+This is a worked example of motion-protocol output. Read alongside the [Linear static trace](../trace-protocol/examples/example-linear.md) — together they describe how Linear's identity expresses across both spatial and temporal dimensions. The same product. Two layers of perception.
 
 ---
 
@@ -81,4 +81,4 @@ A few moves worth noting when you read your own `motion.md` first drafts:
 
 **The summary and the per-quality entries reinforce each other.** The opening paragraph names the identity in one breath. The per-quality entries anchor it. The composition holds.
 
-**Read this alongside the static [Linear trace](../../trace-protocol/examples/example-linear.md).** The same product. Static identity: precise, restrained, dense, authoritative, subtly material. Motion identity: snappy, mechanical, invisible, subtly material. The two profiles reinforce each other — Linear is the rare product whose motion and stillness are saying the same thing.
+**Read this alongside the static [Linear trace](../trace-protocol/examples/example-linear.md).** The same product. Static identity: precise, restrained, dense, authoritative, subtly material. Motion identity: snappy, mechanical, invisible, subtly material. The two profiles reinforce each other — Linear is the rare product whose motion and stillness are saying the same thing.
